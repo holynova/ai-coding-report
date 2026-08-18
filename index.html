@@ -222,8 +222,9 @@
             font-weight: 600;
             padding: 3px 8px;
             border-radius: 4px;
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-blue);
+            background: #1c1c22;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-default);
             width: fit-content;
             margin-bottom: 12px;
         }
@@ -291,7 +292,10 @@
             background: var(--accent-blue);
         }
         .bar-pill.peak {
-            background: #3b82f6;
+            background: #52525b;
+        }
+        .bar-pill:hover {
+            background: #71717a;
         }
         .bar-val {
             font-size: 11px;
@@ -375,7 +379,7 @@
         .fame-rank {
             font-family: var(--font-mono);
             font-size: 11px;
-            color: var(--accent-amber);
+            color: var(--text-muted);
             font-weight: 700;
             width: 24px;
         }
@@ -542,14 +546,14 @@
             font-weight: 600;
         }
         .kind-new {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent-emerald);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: #1c1c22;
+            color: #d4d4d8;
+            border: 1px solid #3f3f46;
         }
         .kind-old {
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--accent-blue);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: #18181c;
+            color: #a1a1aa;
+            border: 1px solid #27272a;
         }
         .repo-col-desc {
             font-size: 12.5px;
@@ -718,27 +722,27 @@
             <div class="metrics-grid">
                 <div class="metric-card">
                     <span class="metric-label">新建原创项目</span>
-                    <span class="metric-value" style="color: #38bdf8;">88</span>
+                    <span class="metric-value">88</span>
                     <span class="metric-foot">0 到 1 原创全新交付 (另有 15 个焕新)</span>
                 </div>
                 <div class="metric-card">
                     <span class="metric-label">纯逻辑代码总量 (LOC)</span>
-                    <span class="metric-value" style="color: #10b981;">42.5<small style="font-size: 16px;">万行</small></span>
+                    <span class="metric-value">42.5<small style="font-size: 16px;">万行</small></span>
                     <span class="metric-foot">纯逻辑源码 (另含 427万行语料)</span>
                 </div>
                 <div class="metric-card">
                     <span class="metric-label">原创项目 Commit 提交数</span>
-                    <span class="metric-value" style="color: #f59e0b;">352<small style="font-size: 16px;">次</small></span>
+                    <span class="metric-value">352<small style="font-size: 16px;">次</small></span>
                     <span class="metric-foot">103 个原创活跃项目有效提交</span>
                 </div>
                 <div class="metric-card">
                     <span class="metric-label">最长连续提交 (Streak)</span>
-                    <span class="metric-value" style="color: #a855f7;">9<small style="font-size: 16px;">天</small></span>
+                    <span class="metric-value">9<small style="font-size: 16px;">天</small></span>
                     <span class="metric-foot">2026.05.20 ~ 2026.05.28 无中断</span>
                 </div>
                 <div class="metric-card">
                     <span class="metric-label">实际编码活跃天数</span>
-                    <span class="metric-value" style="color: #ff5c2b;">92<small style="font-size: 16px;">天</small></span>
+                    <span class="metric-value">92<small style="font-size: 16px;">天</small></span>
                     <span class="metric-foot">周期内 92 天有原创提交推进</span>
                 </div>
             </div>
@@ -755,17 +759,17 @@
             <div class="multiplier-grid">
                 <div class="multiplier-card">
                     <span class="mult-tag">DELIVERY VELOCITY</span>
-                    <div class="mult-val" style="color: #38bdf8;">11.7x 交付加速</div>
+                    <div class="mult-val">11.7x 交付加速</div>
                     <p class="mult-desc">传统手写阶段（2014~2025年，10年）年均交付约 10 个原创项目；AI 协作 9 个月产出 88 个全新原创项目，折算年均 117+ 原创项目，产出吞吐量提升约 11.7 倍。</p>
                 </div>
                 <div class="multiplier-card">
                     <span class="mult-tag">TURNAROUND TIME</span>
-                    <div class="mult-val" style="color: #10b981;">3.1 天 / 原创项目</div>
+                    <div class="mult-val">3.1 天 / 原创项目</div>
                     <p class="mult-desc">平均每 3.1 天完成一个从原创构思、架构设计、编码实现到功能闭环的独立项目，大幅压缩了创意的验证成本。</p>
                 </div>
                 <div class="multiplier-card">
                     <span class="mult-tag">PROTOTYPE READY RATE</span>
-                    <div class="mult-val" style="color: #f59e0b;">90+ 个 Live Demo</div>
+                    <div class="mult-val">90+ 个 Live Demo</div>
                     <p class="mult-desc">几乎所有前端原创项目均配置了直接可访问的在线可交互网页与 Demo，从代码到真实线上可用实现高效率闭环。</p>
                 </div>
             </div>
