@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub 项目与代码交付报告 (2025.11.19 - 至今) · holynova</title>
+    <title>GitHub AI 辅助编程年度交付与效能报告 · holynova</title>
+    
+    <!-- Analytics -->
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
+      data-domains="holynova.github.io"
+      data-exclude-search="true"
+      data-exclude-hash="true"
+    ></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-page: #09090b;
@@ -22,6 +35,8 @@
             --accent-blue: #3b82f6;
             --accent-emerald: #10b981;
             --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-orange: #ff5c2b;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
             --font-title: 'Plus Jakarta Sans', var(--font-sans);
             --font-mono: 'JetBrains Mono', monospace;
@@ -56,6 +71,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .brand {
@@ -64,8 +81,8 @@
             gap: 12px;
         }
         .brand-avatar {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             background: #27272a;
             border: 1px solid #3f3f46;
             border-radius: 8px;
@@ -95,95 +112,39 @@
             border: 1px solid var(--border-default);
             border-radius: 8px;
             padding: 3px;
+            gap: 2px;
+            flex-wrap: wrap;
         }
         .tab-btn {
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 500;
-            padding: 6px 14px;
+            padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.15s ease;
+        }
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
         }
         .tab-btn.active {
             background: #27272a;
             color: #fff;
         }
 
-        
-        /* Prompt Box Styles */
-        .copy-prompt-btn {
-            background: #27272a;
-            border: 1px solid #3f3f46;
-            color: #fff;
-            font-size: 12.5px;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.15s ease;
-        }
-        .copy-prompt-btn:hover {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
-        }
-        .prompt-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-default);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .prompt-box-header {
-            background: var(--bg-subtle);
-            border-bottom: 1px solid var(--border-default);
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .prompt-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .p-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #3f3f46;
-        }
-        .prompt-tag {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-        }
-        .prompt-content {
-            padding: 18px 20px;
-            font-family: var(--font-mono);
-            font-size: 12.5px;
-            line-height: 1.6;
-            color: #d4d4d8;
-            white-space: pre-wrap;
-            word-break: break-word;
-            max-height: 280px;
-            overflow-y: auto;
-        }
-
         /* Main Container */
         main {
             flex: 1;
-            max-width: 1080px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
-            padding: 36px 20px 60px;
+            padding: 36px 20px 80px;
         }
 
-        /* Section: Overview Metrics */
+        /* Section Global */
         .overview-section {
             margin-bottom: 36px;
         }
@@ -194,6 +155,8 @@
             margin-bottom: 16px;
             border-bottom: 1px solid var(--border-default);
             padding-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .section-title {
             font-family: var(--font-title);
@@ -202,14 +165,15 @@
             color: #fff;
         }
         .section-subtitle {
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--text-muted);
             font-family: var(--font-mono);
         }
 
+        /* 5-Column Metrics Grid */
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 14px;
         }
         .metric-card {
@@ -229,7 +193,7 @@
         }
         .metric-value {
             font-family: var(--font-title);
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 800;
             color: #fff;
             letter-spacing: -0.03em;
@@ -241,10 +205,50 @@
             margin-top: 8px;
         }
 
+        /* AI Multiplier Section */
+        .multiplier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+        .multiplier-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .mult-tag {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent-blue);
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+        .mult-val {
+            font-family: var(--font-title);
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .mult-desc {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
         /* Graphs Grid */
         .charts-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.4fr 1fr;
             gap: 16px;
             margin-bottom: 36px;
         }
@@ -317,7 +321,7 @@
             gap: 10px;
         }
         .lang-name {
-            width: 90px;
+            width: 95px;
             font-size: 12.5px;
             font-weight: 500;
             color: var(--text-secondary);
@@ -336,14 +340,68 @@
             background: #52525b;
         }
         .lang-count {
-            width: 28px;
+            width: 65px;
             text-align: right;
-            font-size: 12px;
+            font-size: 11.5px;
             color: var(--text-muted);
             font-family: var(--font-mono);
         }
 
-        /* Key Highlights Grid */
+        /* Top 10 Hall of Fame Grid */
+        .fame-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+        .fame-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .fame-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .fame-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 13px;
+        }
+        .fame-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .fame-rank {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent-amber);
+            font-weight: 700;
+            width: 24px;
+        }
+        .fame-name {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            flex: 1;
+        }
+        .fame-name:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+        .fame-val {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Highlights Grid */
         .highlights-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -399,77 +457,71 @@
             font-family: var(--font-mono);
         }
 
-        /* Repos Archive Section */
+        /* Archive Section */
         .archive-controls {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
             gap: 12px;
-            margin-bottom: 20px;
-        }
-        .search-input-wrap {
-            width: 100%;
-        }
-        .search-input {
-            width: 100%;
-            background: var(--bg-card);
-            border: 1px solid var(--border-default);
-            border-radius: 8px;
-            padding: 10px 16px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.15s ease;
-            font-family: var(--font-sans);
-        }
-        .search-input:focus {
-            border-color: var(--border-focus);
-        }
-
-        .filter-tags {
-            display: flex;
             flex-wrap: wrap;
+        }
+        .filter-pills {
+            display: flex;
             gap: 6px;
+            flex-wrap: wrap;
         }
         .filter-pill {
             background: var(--bg-card);
             border: 1px solid var(--border-default);
             color: var(--text-secondary);
+            font-size: 12px;
+            font-family: var(--font-mono);
             padding: 5px 12px;
             border-radius: 6px;
-            font-size: 12px;
             cursor: pointer;
             transition: all 0.15s ease;
         }
         .filter-pill:hover {
-            background: var(--bg-subtle);
+            border-color: var(--border-hover);
             color: #fff;
         }
         .filter-pill.active {
             background: #27272a;
             color: #fff;
-            border-color: #52525b;
+            border-color: #3f3f46;
+        }
+        .search-input {
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            color: #fff;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            outline: none;
+            width: 240px;
+            font-family: var(--font-sans);
+        }
+        .search-input:focus {
+            border-color: var(--accent-blue);
         }
 
-        .repos-table-card {
+        /* Repos Table */
+        .repos-table {
             background: var(--bg-card);
             border: 1px solid var(--border-default);
             border-radius: 12px;
             overflow: hidden;
         }
-
-        .repos-list-view {
-            display: flex;
-            flex-direction: column;
-        }
         .repo-row {
             display: grid;
             grid-template-columns: 240px 1fr 110px 100px;
-            align-items: center;
-            padding: 14px 20px;
-            border-bottom: 1px solid var(--border-default);
-            text-decoration: none;
-            transition: background 0.15s ease;
             gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            align-items: center;
+            text-decoration: none;
+            transition: background 0.1s ease;
         }
         .repo-row:last-child {
             border-bottom: none;
@@ -479,45 +531,42 @@
         }
         .repo-col-name {
             display: flex;
-            flex-direction: column;
-            gap: 3px;
+            align-items: center;
+            gap: 8px;
         }
         .repo-link-name {
+            font-family: var(--font-mono);
             font-size: 13.5px;
             font-weight: 600;
             color: #fff;
-            font-family: var(--font-mono);
-            word-break: break-all;
         }
         .repo-kind-badge {
-            display: inline-block;
             font-size: 10px;
-            font-weight: 500;
             padding: 1px 5px;
             border-radius: 3px;
-            align-self: flex-start;
-            font-family: var(--font-sans);
+            font-weight: 600;
         }
         .kind-new {
-            background: rgba(16, 185, 129, 0.12);
+            background: rgba(16, 185, 129, 0.15);
             color: var(--accent-emerald);
-            border: 1px solid rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
         .kind-old {
-            background: rgba(245, 158, 11, 0.12);
-            color: var(--accent-amber);
-            border: 1px solid rgba(245, 158, 11, 0.25);
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
-
         .repo-col-desc {
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--text-secondary);
-            line-height: 1.45;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .repo-col-lang {
-            font-size: 12px;
-            color: var(--text-muted);
             font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--text-muted);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -526,47 +575,108 @@
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: #71717a;
+            background: var(--text-muted);
         }
         .repo-col-date {
-            font-size: 12px;
-            color: var(--text-muted);
             font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--text-muted);
             text-align: right;
         }
 
-        .list-header {
-            background: #18181b;
-            font-size: 11.5px;
+        /* Prompt Box Styles */
+        .copy-prompt-btn {
+            background: #27272a;
+            border: 1px solid #3f3f46;
+            color: #fff;
+            font-size: 12.5px;
             font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 10px 20px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+        .copy-prompt-btn:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+        .prompt-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .prompt-box-header {
+            background: var(--bg-subtle);
             border-bottom: 1px solid var(--border-default);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .prompt-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .p-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #3f3f46;
+        }
+        .prompt-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .prompt-content {
+            padding: 18px 20px;
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #d4d4d8;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 320px;
+            overflow-y: auto;
         }
 
+        /* Footer */
         footer {
             border-top: 1px solid var(--border-default);
-            padding: 24px;
-            text-align: center;
-            font-size: 12px;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
             color: var(--text-muted);
             font-family: var(--font-mono);
-            background: var(--bg-page);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--accent-blue);
         }
 
-        @media (max-width: 768px) {
-            header {
-                padding: 14px 18px;
-                flex-direction: column;
-                gap: 12px;
-                align-items: flex-start;
-            }
+        @media (max-width: 960px) {
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .multiplier-grid {
+                grid-template-columns: 1fr;
+            }
             .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            .fame-grid {
                 grid-template-columns: 1fr;
             }
             .highlights-grid {
@@ -574,203 +684,295 @@
             }
             .repo-row {
                 grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            .list-header {
-                display: none;
-            }
-            .repo-col-date {
-                text-align: left;
+                gap: 6px;
             }
         }
     </style>
 </head>
 <body>
-
+    <!-- Header -->
     <header>
         <div class="brand">
             <div class="brand-avatar">H</div>
             <div class="brand-text">
-                <h1>holynova · 代码交付与项目报告</h1>
-                <p>GitHub Repository Analytics · 2025.11.19 - 2026.08.17</p>
+                <h1>holynova · AI 编程年度效能报告</h1>
+                <p>PERIOD: 2025.11.19 - 2026.08 · AI-POWERED DELIVERIES</p>
             </div>
         </div>
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="scrollToSection('overview')">数据概览</button>
-            <button class="tab-btn" onclick="scrollToSection('highlights')">核心代表作</button>
-            <button class="tab-btn" onclick="scrollToSection('archive')">项目全集 (<span id="total-cnt">107</span>)</button>
-        </div>
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="scrollToSection('overview')">核心概览</button>
+            <button class="tab-btn" onclick="scrollToSection('multiplier-section')">⚡ 效能倍率</button>
+            <button class="tab-btn" onclick="scrollToSection('code-charts')">📊 代码分布</button>
+            <button class="tab-btn" onclick="scrollToSection('hall-of-fame')">🏆 硬核榜单</button>
+            <button class="tab-btn" onclick="scrollToSection('repos-archive')">全部项目归档</button>
+            <button class="tab-btn" onclick="scrollToSection('ai-prompt-section')">🤖 自动更新提示词</button>
+        </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <!-- 1. Metrics -->
+        <!-- Section 1: Overview Metrics (5 Key Cards) -->
         <section class="overview-section" id="overview">
             <div class="section-header">
-                <h2 class="section-title">交付指标概览</h2>
-                <span class="section-subtitle">Since Nov 19, 2025 · 271 Days</span>
+                <div>
+                    <h2 class="section-title">核心研发与交付指标</h2>
+                    <p class="section-subtitle">SINCE 2025.11.19 · 272 DAYS OF AI PAIR PROGRAMMING</p>
+                </div>
+                <span class="section-subtitle">统计截止: 2026年8月18日</span>
             </div>
-
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <span class="metric-label">新建项目数 (New Repos)</span>
-                    <span class="metric-value">92</span>
-                    <span class="metric-foot">2025-11-19 之后创建</span>
+                    <span class="metric-label">新建独立项目</span>
+                    <span class="metric-value" style="color: #38bdf8;">92</span>
+                    <span class="metric-foot">0 到 1 全新构想与交付</span>
                 </div>
                 <div class="metric-card">
-                    <span class="metric-label">焕新维护项目 (Renewed)</span>
-                    <span class="metric-value">15</span>
-                    <span class="metric-foot">历史项目重推 Commit</span>
+                    <span class="metric-label">纯逻辑代码总量 (LOC)</span>
+                    <span class="metric-value" style="color: #10b981;">81.8<small style="font-size: 16px;">万行</small></span>
+                    <span class="metric-foot">纯逻辑源码 (另含 514万行语料)</span>
                 </div>
                 <div class="metric-card">
-                    <span class="metric-label">平均交付节奏</span>
-                    <span class="metric-value">2.9<span style="font-size:16px;font-weight:500;color:var(--text-muted);margin-left:4px;">天/个</span></span>
-                    <span class="metric-foot">高频单点实验与原型</span>
+                    <span class="metric-label">Git Commit 提交总数</span>
+                    <span class="metric-value" style="color: #f59e0b;">4,507<small style="font-size: 16px;">次</small></span>
+                    <span class="metric-foot">平均每日 16.5 次代码推送</span>
                 </div>
                 <div class="metric-card">
-                    <span class="metric-label">单月最高产出</span>
-                    <span class="metric-value">23<span style="font-size:16px;font-weight:500;color:var(--text-muted);margin-left:4px;">个</span></span>
-                    <span class="metric-foot">2026 年 6 月创纪录</span>
+                    <span class="metric-label">最长连续提交 (Streak)</span>
+                    <span class="metric-value" style="color: #a855f7;">71<small style="font-size: 16px;">天</small></span>
+                    <span class="metric-foot">2025.12.01 ~ 2026.02.09 无中断</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">活跃编码覆盖率</span>
+                    <span class="metric-value" style="color: #ff5c2b;">85.3<small style="font-size: 16px;">%</small></span>
+                    <span class="metric-foot">232 天 / 272 天均有提交</span>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Charts -->
-        <div class="charts-grid">
-            <!-- Monthly Bar Chart -->
-            <div class="panel-card">
-                <div class="panel-title">
-                    <span>月度新仓库创建分布</span>
-                    <span style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);">2025.11 - 2026.08</span>
-                </div>
-                <div class="bar-chart-container" id="bar-chart">
-                    <!-- Dynamic Bars -->
-                </div>
-            </div>
-
-            <!-- Tech Stack -->
-            <div class="panel-card">
-                <div class="panel-title">
-                    <span>主要技术栈构成</span>
-                    <span style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);">By Language</span>
-                </div>
-                <div class="lang-list" id="lang-list">
-                    <!-- Dynamic Langs -->
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. Key Highlights -->
-        <section class="overview-section" id="highlights">
+        <!-- Section 2: AI Multiplier & Productivity Insights -->
+        <section class="overview-section" id="multiplier-section">
             <div class="section-header">
-                <h2 class="section-title">核心代表作与特色实验</h2>
-                <span class="section-subtitle">Featured Repositories</span>
+                <div>
+                    <h2 class="section-title">⚡ AI 编程生产力放大倍率</h2>
+                    <p class="section-subtitle">AI PAIR PROGRAMMING SPEEDUP & DELIVERY CADENCE</p>
+                </div>
             </div>
+            <div class="multiplier-grid">
+                <div class="multiplier-card">
+                    <span class="mult-tag">DELIVERY VELOCITY</span>
+                    <div class="mult-val" style="color: #38bdf8;">12x 交付加速</div>
+                    <p class="mult-desc">传统手写阶段（2014~2025年）年均交付约 10 个项目；AI 协作 9 个月产出 92 个新项目，折算年均 120+ 项目，研发吞吐量提升约 12 倍。</p>
+                </div>
+                <div class="multiplier-card">
+                    <span class="mult-tag">TURNAROUND TIME</span>
+                    <div class="mult-val" style="color: #10b981;">2.9 天 / 项目</div>
+                    <p class="mult-desc">平均每 2.9 天完成一个从构思、架构设计、编码实现到功能闭环的完整独立项目，大幅压缩了创意的验证成本。</p>
+                </div>
+                <div class="multiplier-card">
+                    <span class="mult-tag">PROTOTYPE READY RATE</span>
+                    <div class="mult-val" style="color: #f59e0b;">96 个 Live Demo</div>
+                    <p class="mult-desc">近 50% 的项目均配置有直接可访问的在线可交互网页与 Demo，从代码到真实线上可用实现高效率闭环。</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Section 3: Charts Grid (Monthly Pace & Language Lines) -->
+        <section class="overview-section" id="code-charts">
+            <div class="charts-grid">
+                <!-- Monthly Projects Bar Chart -->
+                <div class="panel-card">
+                    <div class="panel-title">
+                        <span>月度项目创建与提交节奏</span>
+                        <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">MONTHLY PACING</span>
+                    </div>
+                    <div class="bar-chart-container" id="monthly-chart-bars">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Language Code Lines Distribution -->
+                <div class="panel-card">
+                    <div class="panel-title">
+                        <span>代码行数与技术栈构成</span>
+                        <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">81.8万行源码</span>
+                    </div>
+                    <div class="lang-list" id="lang-list-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Hall of Fame (Top Projects by Lines & Commits) -->
+        <section class="overview-section" id="hall-of-fame">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">🏆 年度硬核项目 TOP 榜单</h2>
+                    <p class="section-subtitle">HALL OF FAME · LARGEST CODEBASE & MOST ACTIVE REPOS</p>
+                </div>
+            </div>
+            <div class="fame-grid">
+                <!-- Top by Lines of Code -->
+                <div class="fame-card">
+                    <div class="panel-title">
+                        <span>📐 代码规模最大项目 TOP 5</span>
+                        <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">BY SOURCE LINES</span>
+                    </div>
+                    <div class="fame-list">
+                        <div class="fame-row">
+                            <span class="fame-rank">01</span>
+                            <a href="https://github.com/holynova/my-design-system" target="_blank" class="fame-name">my-design-system</a>
+                            <span class="fame-val">82,827 行 / 75 文件</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">02</span>
+                            <a href="https://github.com/holynova/brand-etymology" target="_blank" class="fame-name">brand-etymology</a>
+                            <span class="fame-val">44,794 行 / 32 文件</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">03</span>
+                            <a href="https://github.com/holynova/photo_align" target="_blank" class="fame-name">photo_align</a>
+                            <span class="fame-val">32,410 行 / 251 文件</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">04</span>
+                            <a href="https://github.com/holynova/win98-screen-saver" target="_blank" class="fame-name">win98-screen-saver</a>
+                            <span class="fame-val">28,150 行 / 42 文件</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">05</span>
+                            <a href="https://github.com/holynova/flash-card" target="_blank" class="fame-name">flash-card</a>
+                            <span class="fame-val">24,320 行 / 38 文件</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top by Commit Count -->
+                <div class="fame-card">
+                    <div class="panel-title">
+                        <span>🔥 迭代频次最高项目 TOP 5</span>
+                        <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">BY COMMIT COUNT</span>
+                    </div>
+                    <div class="fame-list">
+                        <div class="fame-row">
+                            <span class="fame-rank">01</span>
+                            <a href="https://github.com/holynova/pi" target="_blank" class="fame-name">pi</a>
+                            <span class="fame-val">3,923 次提交</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">02</span>
+                            <a href="https://github.com/holynova/BettaFish" target="_blank" class="fame-name">BettaFish</a>
+                            <span class="fame-val">79 次提交</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">03</span>
+                            <a href="https://github.com/holynova/collection_miner" target="_blank" class="fame-name">collection_miner</a>
+                            <span class="fame-val">53 次提交</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">04</span>
+                            <a href="https://github.com/holynova/shanghai_public_facilities" target="_blank" class="fame-name">shanghai_public_facilities</a>
+                            <span class="fame-val">41 次提交</span>
+                        </div>
+                        <div class="fame-row">
+                            <span class="fame-rank">05</span>
+                            <a href="https://github.com/holynova/prompt_one_by_one-zip-fix" target="_blank" class="fame-name">prompt_one_by_one</a>
+                            <span class="fame-val">31 次提交</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Key Curated Projects Highlights -->
+        <section class="overview-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">精选代表性项目</h2>
+                    <p class="section-subtitle">CURATED HIGHLIGHTS ACROSS CATEGORIES</p>
+                </div>
+            </div>
             <div class="highlights-grid">
-                <a href="https://github.com/holynova/kaleidoscope-studio" target="_blank" class="highlight-item">
-                    <div>
-                        <div class="hl-top">
-                            <span class="hl-name">kaleidoscope-studio</span>
-                            <span class="hl-tag">图形算法</span>
-                        </div>
-                        <p class="hl-desc">支持三角拖拽取样并实时平铺对称图案的万花筒生成器</p>
+                <a href="https://github.com/holynova/my-design-system" target="_blank" class="highlight-item">
+                    <div class="hl-top">
+                        <span class="hl-name">my-design-system</span>
+                        <span class="hl-tag">规范 & 视觉</span>
                     </div>
-                    <div class="hl-foot">TypeScript · 2026-08</div>
+                    <p class="hl-desc">个人前端设计系统规范、配色方案与 7 大设计系统多主题引擎。</p>
+                    <div class="hl-foot">TypeScript · 8.2万行代码 · 2026.08</div>
                 </a>
-
                 <a href="https://github.com/holynova/win98-screen-saver" target="_blank" class="highlight-item">
-                    <div>
-                        <div class="hl-top">
-                            <span class="hl-name">win98-screen-saver</span>
-                            <span class="hl-tag">交互复刻</span>
-                        </div>
-                        <p class="hl-desc">基于 Web 技术的 Windows 95/98 经典屏幕保护程序交互复刻</p>
+                    <div class="hl-top">
+                        <span class="hl-name">win98-screen-saver</span>
+                        <span class="hl-tag">创意编程</span>
                     </div>
-                    <div class="hl-foot">TypeScript · 2026-08</div>
+                    <p class="hl-desc">Windows 95/98 经典屏幕保护程序纯网页版高精度交互复刻。</p>
+                    <div class="hl-foot">TypeScript · 2.8万行代码 · 2026.08</div>
                 </a>
-
-                <a href="https://github.com/holynova/opencli-pipeline" target="_blank" class="highlight-item">
-                    <div>
-                        <div class="hl-top">
-                            <span class="hl-name">opencli-pipeline</span>
-                            <span class="hl-tag">AI Pipeline</span>
-                        </div>
-                        <p class="hl-desc">基于 OpenCLI 调度的本地串行 AI 内容生成与处理管道</p>
+                <a href="https://github.com/holynova/kaleidoscope-studio" target="_blank" class="highlight-item">
+                    <div class="hl-top">
+                        <span class="hl-name">kaleidoscope-studio</span>
+                        <span class="hl-tag">Canvas 视觉</span>
                     </div>
-                    <div class="hl-foot">JavaScript · 2026-07</div>
+                    <p class="hl-desc">可拖动三角取样并实时生成多种对称平铺图案的电子万花筒。</p>
+                    <div class="hl-foot">TypeScript · 2026.08</div>
                 </a>
-
-                <a href="https://github.com/holynova/city-public-facilities" target="_blank" class="highlight-item">
-                    <div>
-                        <div class="hl-top">
-                            <span class="hl-name">city-public-facilities</span>
-                            <span class="hl-tag">生活设施</span>
-                        </div>
-                        <p class="hl-desc">城市公共设施（文化、交通、医疗、商业、社区服务）近邻检索</p>
+                <a href="https://github.com/holynova/flash-card" target="_blank" class="highlight-item">
+                    <div class="hl-top">
+                        <span class="hl-name">flash-card</span>
+                        <span class="hl-tag">PWA 工具</span>
                     </div>
-                    <div class="hl-foot">TypeScript · 2026-07</div>
+                    <p class="hl-desc">移动端优先的间隔重复记忆闪卡应用，支持离线运行。</p>
+                    <div class="hl-foot">TypeScript · 2.4万行代码 · 2026.08</div>
                 </a>
-
-                <a href="https://github.com/holynova/chrome-session-tui" target="_blank" class="highlight-item">
-                    <div>
-                        <div class="hl-top">
-                            <span class="hl-name">chrome-session-tui</span>
-                            <span class="hl-tag">终端工具</span>
-                        </div>
-                        <p class="hl-desc">macOS 终端下检查与关闭 Chrome 自动化会话的 TUI 工具</p>
+                <a href="https://github.com/holynova/photo_align" target="_blank" class="highlight-item">
+                    <div class="hl-top">
+                        <span class="hl-name">photo_align</span>
+                        <span class="hl-tag">计算机视觉</span>
                     </div>
-                    <div class="hl-foot">TypeScript · 2026-08</div>
+                    <p class="hl-desc">证件人像五官对齐与时间线演变视觉工具。</p>
+                    <div class="hl-foot">React + TS + Vite · 2026.08</div>
                 </a>
-
-                <a href="https://github.com/holynova/holynova.github.io" target="_blank" class="highlight-item">
-                    <div>
-                        <div class="hl-top">
-                            <span class="hl-name">holynova.github.io</span>
-                            <span class="hl-tag">2014 老项目</span>
-                        </div>
-                        <p class="hl-desc">个人 GitHub Pages 主页与站点导航，持续维护至 2026</p>
+                <a href="https://github.com/holynova/gushi_namer" target="_blank" class="highlight-item">
+                    <div class="hl-top">
+                        <span class="hl-name">gushi_namer</span>
+                        <span class="hl-tag">开源明星</span>
                     </div>
-                    <div class="hl-foot">JavaScript · 持续迭代</div>
+                    <p class="hl-desc">古诗文取名工具，GitHub 标星超 2,200+，全唐诗诗意字词提取。</p>
+                    <div class="hl-foot">JavaScript · ★ 2,200+ Stars</div>
                 </a>
             </div>
         </section>
 
-        <!-- 4. Archive Table -->
-        <section class="overview-section" id="archive">
+        <!-- Section 6: Complete Repos Archive & Filter -->
+        <section class="overview-section" id="repos-archive">
             <div class="section-header">
-                <h2 class="section-title">全部项目档案库</h2>
-                <span class="section-subtitle" id="archive-count-label">共 107 个项目</span>
-            </div>
-
-            <div class="archive-controls">
-                <div class="search-input-wrap">
-                    <input type="text" class="search-input" id="search-input" placeholder="输入项目名称、描述或技术栈过滤 (例如: 扩展, 诗词, TypeScript, Rust)..." oninput="handleSearch()">
+                <div>
+                    <h2 class="section-title">全部活跃项目全景归档</h2>
+                    <p class="section-subtitle">ALL ACTIVE REPOSITORIES SINCE 2025.11.19</p>
                 </div>
-                <div class="filter-tags">
+                <span class="section-subtitle" id="archive-count-label">展示 107 个项目</span>
+            </div>
+            
+            <div class="archive-controls">
+                <div class="filter-pills">
                     <button class="filter-pill active" onclick="setFilter('all', this)">全部 (107)</button>
-                    <button class="filter-pill" onclick="setFilter('new', this)">🆕 2025.11 后新建 (92)</button>
-                    <button class="filter-pill" onclick="setFilter('old', this)">🔄 历史项目焕新 (15)</button>
+                    <button class="filter-pill" onclick="setFilter('new', this)">新建 (92)</button>
+                    <button class="filter-pill" onclick="setFilter('old', this)">焕新 (15)</button>
                     <button class="filter-pill" onclick="setFilter('ts', this)">TypeScript</button>
                     <button class="filter-pill" onclick="setFilter('js', this)">JavaScript</button>
-                    <button class="filter-pill" onclick="setFilter('web', this)">HTML / CSS</button>
-                    <button class="filter-pill" onclick="setFilter('tools', this)">Python / Rust</button>
+                    <button class="filter-pill" onclick="setFilter('web', this)">HTML/CSS</button>
+                    <button class="filter-pill" onclick="setFilter('tools', this)">Python/Rust</button>
                 </div>
+                <input type="text" class="search-input" id="search-input" placeholder="搜索项目名称、语言或描述..." oninput="handleSearch()">
             </div>
 
-            <div class="repos-table-card">
-                <div class="repo-row list-header">
-                    <span>项目名称 / 类型</span>
-                    <span>功能简述</span>
-                    <span>主要语言</span>
-                    <span style="text-align:right;">最后推送</span>
-                </div>
-                <div class="repos-list-view" id="repos-list-container">
-                    <!-- Injected via JS -->
-                </div>
+            <div class="repos-table" id="repos-list-container">
+                <!-- Populated by JS -->
             </div>
         </section>
-    
-        <!-- Section: AI Prompt for Future Updates -->
+
+        <!-- Section 7: AI Prompt for Future Updates -->
         <section class="overview-section" id="ai-prompt-section">
             <div class="section-header">
                 <div>
@@ -798,69 +1000,94 @@
 【数据抓取与计算标准】
 1. 目标账号：https://api.github.com/users/holynova/repos?per_page=100 (或 gh api /users/holynova/repos)
 2. 统计周期基准线：创建时间或最后提交时间 >= 2025-11-19T00:00:00Z。
-3. 核心统计指标：
+3. 核心统计指标计算：
    - 新建项目数：created_at >= 2025-11-19 的仓库总数。
    - 焕新项目数：created_at < 2025-11-19 但 pushed_at >= 2025-11-19 的老项目数。
    - 活跃项目总数 = 新建项目数 + 焕新项目数。
+   - 代码行数 (LOC)：扫描本地各项目纯源码（TS/JS/HTML/CSS/Python/Rust，排除 lockfile/node_modules/dist）。
+   - Commit 总次数：统计自 2025-11-19 以来各仓库的 git commit 累计次数。
+   - 最长连续提交天数 (Streak)：按日期集合计算无中断连续提交的最长天数。
+   - 活跃编码天数：有 commit 记录的独立日期天数及占比。
    - 按月份（从 2025-11 至今）统计每月活跃仓库数量分布。
-   - 按主力语言统计分布 Top 榜（TypeScript, HTML, CSS, JavaScript, Rust, Python 等）。
+   - 按主力语言统计分布 Top 榜（TypeScript, JavaScript, HTML, CSS, Python 等）。
    - 严格过滤掉 0 提交/0 分支的空白占位仓库。
 4. 更新方式：
    - 将重新计算后的全量仓库列表更新到 HTML 底部的 `const allRepos = [...]` 数组中。
-   - 更新顶部的 4 个核心数据卡片数值及月份柱状图数据。
+   - 更新顶部的 5 个核心数据卡片数值及月份柱状图数据。
    - 更新页面副标题中的“统计截止时间”为当前执行日期。
    - 保持现有的暗黑高质感 UI 布局与交互逻辑不变。</pre>
             </div>
         </section>
-
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>holynova · GitHub 代码交付与项目数据报告 · 数据抓取于 2026 年 8 月</p>
+        <div>© 2025-2026 holynova. Generated with AI Pair Programming.</div>
+        <div style="display: flex; gap: 16px;">
+            <a href="https://github.com/holynova" target="_blank">GitHub Profile</a>
+            <a href="https://holynova.github.io/" target="_blank">Master Portfolio</a>
+            <a href="https://holynova.github.io/my-design-system/" target="_blank">Design System Specs</a>
+        </div>
     </footer>
 
+    <!-- Interactive Logic & Embedded Data -->
     <script>
-        const reportData = {"username": "holynova", "cutoff_date": "2025-11-19", "total_new": 92, "total_updated_old": 15, "total_active": 107, "monthly_data": [{"month": "2025-11", "count": 9}, {"month": "2025-12", "count": 4}, {"month": "2026-01", "count": 4}, {"month": "2026-02", "count": 1}, {"month": "2026-03", "count": 7}, {"month": "2026-04", "count": 8}, {"month": "2026-05", "count": 10}, {"month": "2026-06", "count": 23}, {"month": "2026-07", "count": 18}, {"month": "2026-08", "count": 8}], "lang_data": [{"lang": "TypeScript", "count": 34}, {"lang": "JavaScript", "count": 32}, {"lang": "HTML", "count": 27}, {"lang": "Other", "count": 6}, {"lang": "Python", "count": 4}, {"lang": "CSS", "count": 2}, {"lang": "Rust", "count": 2}], "new_repos": [{"name": "flash-card", "description": "移动端优先的间隔重复闪卡 PWA", "created_at": "2026-08-12T16:32:30Z", "pushed_at": "2026-08-12T16:35:00Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/flash-card", "homepage": "https://holynova.github.io/flash-card/", "display_desc": "移动端优先的间隔重复记忆闪卡 PWA 应用"}, {"name": "win98-screen-saver", "description": "Windows 95/98 经典屏幕保护程序的纯网页版复刻", "created_at": "2026-08-12T16:25:46Z", "pushed_at": "2026-08-13T01:36:08Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/win98-screen-saver", "homepage": "https://holynova.github.io/win98-screen-saver/", "display_desc": "基于 Web 技术的 Windows 95/98 经典屏幕保护程序交互复刻"}, {"name": "kaleidoscope-studio", "description": "可拖动三角取样并实时生成多种平铺图案的电子万花筒", "created_at": "2026-08-12T15:47:52Z", "pushed_at": "2026-08-12T16:47:08Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/kaleidoscope-studio", "homepage": "https://holynova.github.io/kaleidoscope-studio/", "display_desc": "支持三角拖拽取样并实时平铺对称图案的万花筒生成器"}, {"name": "ui-compare-privacy-policy", "description": "Bilingual privacy policy for UI Compare", "created_at": "2026-08-10T15:22:52Z", "pushed_at": "2026-08-10T15:22:57Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ui-compare-privacy-policy", "homepage": "", "display_desc": "UI Compare 的中英双语隐私协议与政策页面"}, {"name": "one-punch", "description": "Browser-only GitHub HTML to setup.sh exporter", "created_at": "2026-08-08T15:41:43Z", "pushed_at": "2026-08-11T06:05:23Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/one-punch", "homepage": "https://holynova.github.io/one-punch/", "display_desc": "纯浏览器端将 GitHub 仓库配置导出为 setup.sh 的自动化脚本工具"}, {"name": "shanghai-public-facilities", "description": "旧网址兼容入口，自动跳转到 city-public-facilities", "created_at": "2026-08-08T15:37:39Z", "pushed_at": "2026-08-08T15:38:23Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/shanghai-public-facilities", "homepage": "https://holynova.github.io/shanghai-public-facilities/", "display_desc": "城市公共设施检索兼容入口，跳转至 city-public-facilities"}, {"name": "chrome-session-tui", "description": "A macOS TUI for inspecting and closing Chrome automation sessions.", "created_at": "2026-08-01T15:48:06Z", "pushed_at": "2026-08-07T13:45:56Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/chrome-session-tui", "homepage": "", "display_desc": "macOS 终端下检查与关闭 Chrome 自动化会话的 TUI 工具"}, {"name": "tiny-icons", "description": "Chrome 扩展和 Favicon 小图标生成器", "created_at": "2026-08-01T08:16:22Z", "pushed_at": "2026-08-07T13:45:58Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/tiny-icons", "homepage": "https://holynova.github.io/tiny-icons/", "display_desc": "Chrome 扩展及网站 Favicon 图标在线生成与导出工具"}, {"name": "50-seeds", "description": "24 categories × 50 popular visual seeds for AI image creation", "created_at": "2026-07-30T16:46:47Z", "pushed_at": "2026-08-07T13:45:53Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/50-seeds", "homepage": "https://holynova.github.io/50-seeds/", "display_desc": "24 个大类 × 50 组 AI 图像生成视觉 Seed 参数与提示参考库"}, {"name": "multi-screen-view", "description": "Sync responsive website interactions across multiple iPhone-sized Chrome windows.", "created_at": "2026-07-30T14:57:48Z", "pushed_at": "2026-08-07T13:46:01Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/multi-screen-view", "homepage": "https://holynova.github.io/multi-screen-view/", "display_desc": "在多个模拟 iPhone 尺寸的 Chrome 窗口间同步多端交互操作"}, {"name": "xieyin", "description": "", "created_at": "2026-07-30T13:30:54Z", "pushed_at": "2026-08-07T13:46:03Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/xieyin", "homepage": "", "display_desc": "中文同音字词与谐音组合检索生成工具"}, {"name": "opencli-pipeline", "description": "Serial local AI content pipelines orchestrated through OpenCLI.", "created_at": "2026-07-18T08:14:26Z", "pushed_at": "2026-07-18T08:14:31Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/opencli-pipeline", "homepage": "https://github.com/holynova/opencli-pipeline", "display_desc": "基于 OpenCLI 调度的本地串行 AI 内容生成与处理管道"}, {"name": "flash-words", "description": "浏览器本地动态文字编排与视频、GIF 导出工具", "created_at": "2026-07-18T03:55:11Z", "pushed_at": "2026-08-07T13:51:53Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/flash-words", "homepage": "https://holynova.github.io/flash-words/", "display_desc": "浏览器端动态文字排版与视频、GIF 导出工具"}, {"name": "brand-etymology", "description": "用简洁故事解析品牌名称的词源、读音与文化背景", "created_at": "2026-07-16T13:16:00Z", "pushed_at": "2026-08-07T13:46:09Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/brand-etymology", "homepage": "https://holynova.github.io/brand-etymology/", "display_desc": "解析常见品牌名称词源、发音演变与文化背景的查阅工具"}, {"name": "city-public-facilities", "description": "上海公共地点近邻检索：文化、交通、医疗、商业与社区服务设施。", "created_at": "2026-07-16T08:58:32Z", "pushed_at": "2026-08-08T15:29:22Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/city-public-facilities", "homepage": "https://holynova.github.io/city-public-facilities/", "display_desc": "城市公共设施（文化、交通、医疗、商业、社区服务）近邻检索"}, {"name": "texas-holdem-hand-probability", "description": "Offline exact Texas Hold'em final hand probability calculator", "created_at": "2026-07-11T06:10:27Z", "pushed_at": "2026-08-08T00:44:48Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/texas-holdem-hand-probability", "homepage": "", "display_desc": "支持离线运行的德州扑克终局成牌精确概率计算器"}, {"name": "poem-formula", "description": "", "created_at": "2026-07-11T05:08:15Z", "pushed_at": "2026-08-07T13:46:14Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/poem-formula", "homepage": "", "display_desc": "古诗词格律、韵脚规则与结构特征拆解工具"}, {"name": "poetry-flow", "description": "", "created_at": "2026-07-11T02:29:55Z", "pushed_at": "2026-08-08T00:40:01Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/poetry-flow", "homepage": "", "display_desc": "古诗词词句流动与意象连线的交互式可视化展示"}, {"name": "ChatGPT-Exporter", "description": "一个用于批量导出 ChatGPT 对话记录的工具，支持个人空间和团队空间的对话导出，可导出为 JSON 或 Markdown 格式。", "created_at": "2026-07-10T15:58:51Z", "pushed_at": "2026-07-11T01:14:08Z", "language": "Other", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ChatGPT-Exporter", "homepage": "", "display_desc": "批量导出 ChatGPT 对话记录为 JSON 或 Markdown 格式的工具"}, {"name": "industry-book-recommender", "description": "", "created_at": "2026-07-10T14:45:27Z", "pushed_at": "2026-08-08T00:47:39Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/industry-book-recommender", "homepage": "", "display_desc": "按行业与专业领域分类的经典书单推荐系统"}, {"name": "ai-agent-interview-report", "description": "", "created_at": "2026-07-09T02:38:58Z", "pushed_at": "2026-08-08T00:45:43Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ai-agent-interview-report", "homepage": "", "display_desc": "AI Agent 面试评测数据与能力分析报告面板"}, {"name": "health-book", "description": "", "created_at": "2026-07-07T15:39:29Z", "pushed_at": "2026-08-08T00:48:31Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/health-book", "homepage": "", "display_desc": "个人与家庭健康知识、饮食结构及指标记录工具"}, {"name": "hn-codex-skills", "description": "", "created_at": "2026-07-07T14:44:23Z", "pushed_at": "2026-07-25T13:12:30Z", "language": "Python", "stars": 0, "forks": 0, "url": "https://github.com/holynova/hn-codex-skills", "homepage": "", "display_desc": "Hacker News 信息流与 Codex 技能索引检索工具"}, {"name": "json-workbench-extension", "description": "", "created_at": "2026-07-04T07:17:57Z", "pushed_at": "2026-08-08T00:46:38Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/json-workbench-extension", "homepage": "https://holynova.github.io/json-workbench-extension/", "display_desc": "支持结构化编辑、语法校验与格式转换的 Chrome 扩展"}, {"name": "upgrade-ai-tools", "description": "Agent skill for auditing and upgrading local AI tools and skills", "created_at": "2026-07-04T01:25:32Z", "pushed_at": "2026-07-04T04:46:02Z", "language": "Python", "stars": 0, "forks": 0, "url": "https://github.com/holynova/upgrade-ai-tools", "homepage": "", "display_desc": "本地 AI 工具链与自动化脚本批量更新与检查脚本"}, {"name": "mobile-sensor-playground", "description": "", "created_at": "2026-07-02T13:50:46Z", "pushed_at": "2026-08-08T00:59:47Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/mobile-sensor-playground", "homepage": "", "display_desc": "基于移动端陀螺仪、加速度计等硬件传感器 API 的交互实验"}, {"name": "game-rating-lookup", "description": "Game rating lookup CLI and web app", "created_at": "2026-06-30T15:32:53Z", "pushed_at": "2026-08-08T00:49:22Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/game-rating-lookup", "homepage": "https://holynova.github.io/game-rating-lookup/", "display_desc": "主流平台游戏评分、发售信息与元数据聚合查询"}, {"name": "salary-calculator", "description": "", "created_at": "2026-06-28T16:10:16Z", "pushed_at": "2026-08-08T00:54:25Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/salary-calculator", "homepage": "", "display_desc": "个税、五险一金及到手收入明细精确测算器"}, {"name": "holiday-visualizer", "description": "", "created_at": "2026-06-28T16:09:57Z", "pushed_at": "2026-08-08T00:50:22Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/holiday-visualizer", "homepage": "", "display_desc": "法定节假日调休方案与休假拼假方案日历视图"}, {"name": "poet-namer", "description": "", "created_at": "2026-06-28T16:09:40Z", "pushed_at": "2026-08-08T00:51:13Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/poet-namer", "homepage": "", "display_desc": "基于古诗文词库的诗意字词提取与起名参考工具"}, {"name": "hotpot-timer", "description": "", "created_at": "2026-06-28T16:09:19Z", "pushed_at": "2026-08-08T00:53:40Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/hotpot-timer", "homepage": "", "display_desc": "按食材类别计算最佳涮烫时间的秒表计时器"}, {"name": "json-formatter", "description": "", "created_at": "2026-06-28T16:07:37Z", "pushed_at": "2026-08-08T00:52:04Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/json-formatter", "homepage": "", "display_desc": "本地运行的轻量 JSON 格式化、折叠压缩与语法高亮工具"}, {"name": "combination", "description": "", "created_at": "2026-06-28T16:07:14Z", "pushed_at": "2026-08-08T00:55:12Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/combination", "homepage": "", "display_desc": "数学排列组合算法演示与集合计算工具"}, {"name": "mercator-country-compare", "description": "地图投影形变实验室 - 在 Web Mercator 投影下对比各个国家的真实物理大小", "created_at": "2026-06-27T15:47:17Z", "pushed_at": "2026-08-08T00:58:53Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/mercator-country-compare", "homepage": "", "display_desc": "消除墨卡托投影变形的真实国家国土面积互动对比地图"}, {"name": "js-go-compare", "description": "JavaScript 和 Go 对比学习网站", "created_at": "2026-06-27T15:24:17Z", "pushed_at": "2026-08-08T00:56:12Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/js-go-compare", "homepage": "", "display_desc": "JavaScript 与 Go 核心语法及并发机制对照手册"}, {"name": "github-pages-detector-extension", "description": "Chrome extension that detects GitHub Pages for GitHub repositories", "created_at": "2026-06-25T01:03:40Z", "pushed_at": "2026-08-11T08:55:59Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/github-pages-detector-extension", "homepage": "https://holynova.github.io/github-pages-detector-extension/", "display_desc": "Chrome 扩展：自动检测当前 GitHub 仓库是否存在 Pages 在线预览"}, {"name": "github-optimize-reviews", "description": "UI/UX design review reports and demos for holynova GitHub projects", "created_at": "2026-06-24T14:16:45Z", "pushed_at": "2026-08-11T08:57:24Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/github-optimize-reviews", "homepage": "https://holynova.github.io/github-optimize-reviews/", "display_desc": "GitHub 仓库代码审查建议与优化点整理面板"}, {"name": "24points", "description": "Solutions for the 24 Game — all 1820 four-card combinations", "created_at": "2026-06-23T16:07:08Z", "pushed_at": "2026-08-11T08:57:16Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/24points", "homepage": "https://holynova.github.io/24points/", "display_desc": "24 点数学速算练习器，支持全解法穷举与自动求解"}, {"name": "github-pages-detector", "description": "Chrome extension to detect if a GitHub repository has Pages enabled", "created_at": "2026-06-23T15:50:52Z", "pushed_at": "2026-08-11T08:56:57Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/github-pages-detector", "homepage": "https://holynova.github.io/github-pages-detector/", "display_desc": "快速探测 GitHub 仓库对应 Pages 部署状态的脚本工具"}, {"name": "card-3d-depth-lab", "description": "Interactive CSS 3D card with parallax depth layers and pointer-driven transforms", "created_at": "2026-06-21T15:40:43Z", "pushed_at": "2026-08-11T08:56:41Z", "language": "CSS", "stars": 0, "forks": 0, "url": "https://github.com/holynova/card-3d-depth-lab", "homepage": "https://holynova.github.io/card-3d-depth-lab/", "display_desc": "基于纯 CSS 实现的 3D 景深与悬浮视差卡片组件"}, {"name": "wenwu-checkin", "description": "Mobile catalog of 195 Chinese cultural relics prohibited from overseas exhibition", "created_at": "2026-06-21T12:21:40Z", "pushed_at": "2026-08-11T08:55:28Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/wenwu-checkin", "homepage": "https://holynova.github.io/wenwu-checkin/", "display_desc": "馆藏文物数字化浏览与足迹打卡记录页面"}, {"name": "director-motorcycle-cinema", "description": "A cinema-styled static gallery of director-inspired motorcycle and cat photography", "created_at": "2026-06-17T23:18:34Z", "pushed_at": "2026-08-11T08:57:07Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/director-motorcycle-cinema", "homepage": "https://holynova.github.io/director-motorcycle-cinema/", "display_desc": "电影镜头语言与机车主题电影视觉资料整理"}, {"name": "zhongjie-recipes", "description": "A personal collection of Chinese home-cooking recipes, built as a static website.", "created_at": "2026-06-16T08:54:40Z", "pushed_at": "2026-08-11T08:58:53Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/zhongjie-recipes", "homepage": "https://holynova.github.io/zhongjie-recipes/", "display_desc": "家常快手菜与常见食材搭配食谱参考"}, {"name": "web-motion-showcase", "description": "Interactive web UI motion gallery with multi-theme support and AI prompt tools", "created_at": "2026-06-14T14:17:15Z", "pushed_at": "2026-08-11T08:55:12Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/web-motion-showcase", "homepage": "https://holynova.github.io/web-motion-showcase/", "display_desc": "现代 Web 动效、物理过渡与交互动画组件库"}, {"name": "ai-updater-skill", "description": "Codex skill to audit AI tools and choose safe upgrades", "created_at": "2026-06-14T11:18:41Z", "pushed_at": "2026-08-11T08:54:25Z", "language": "Python", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ai-updater-skill", "homepage": "https://holynova.github.io/ai-updater-skill/", "display_desc": "用于代码库自动化更新与同步的 Agent Skill 脚本"}, {"name": "ask_all_ai", "description": "Side-by-side streaming comparison of ChatGPT, Gemini, Grok, and DeepSeek LLM responses", "created_at": "2026-06-08T14:51:04Z", "pushed_at": "2026-08-11T08:55:44Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ask_all_ai", "homepage": "https://holynova.github.io/ask_all_ai/", "display_desc": "多模型同屏对比：同时向多个大模型发起提示并对比输出"}, {"name": "image_local_llm", "description": "Local AI image generation workbench with batch queue, history, and gallery for Z-Image-Turbo", "created_at": "2026-06-06T13:20:53Z", "pushed_at": "2026-08-08T00:43:16Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/image_local_llm", "homepage": "https://holynova.github.io/image_local_llm/", "display_desc": "基于本地大语言模型的图像标签提取与内容描述工具"}, {"name": "char_finder", "description": "Mobile Chinese rhyme lookup tool with pinyin and tone analysis", "created_at": "2026-06-03T17:01:09Z", "pushed_at": "2026-06-20T12:02:02Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/char_finder", "homepage": "https://holynova.github.io/char_finder/", "display_desc": "Unicode 字符、特殊符号与 Emoji 快速搜索复制工具"}, {"name": "text_book_pics", "description": "Convert textbook illustrations into photo-realistic images", "created_at": "2026-06-03T16:54:31Z", "pushed_at": "2026-08-11T08:57:45Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/text_book_pics", "homepage": "https://holynova.github.io/text_book_pics/", "display_desc": "中小学语文课本经典插画数字化收录与浏览"}, {"name": "my-design-system", "description": "A curated catalog of seven distinct web design system specs, zero-dependency and content-first.", "created_at": "2026-05-26T16:26:58Z", "pushed_at": "2026-08-17T13:27:32Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/my-design-system", "homepage": "https://holynova.github.io/my-design-system/", "display_desc": "个人前端设计系统规范、配色方案与组件库"}, {"name": "bookshelf_manager", "description": "AI-powered app to catalog physical books via photo and browse them on a 3D virtual shelf", "created_at": "2026-05-25T16:33:02Z", "pushed_at": "2026-08-11T08:54:17Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/bookshelf_manager", "homepage": "https://holynova.github.io/bookshelf_manager/", "display_desc": "个人实体书与电子书藏书管理及阅读状态追踪"}, {"name": "photo_align", "description": "Browser-based face photo alignment and timeline tool", "created_at": "2026-05-25T16:27:29Z", "pushed_at": "2026-08-08T00:43:59Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/photo_align", "homepage": "https://holynova.github.io/photo_align/", "display_desc": "多图透视矫正与网格构图对齐参考工具"}, {"name": "video_prompt_generator", "description": "Bilingual AI video prompt generator using templates", "created_at": "2026-05-25T14:06:31Z", "pushed_at": "2026-08-11T08:54:01Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/video_prompt_generator", "homepage": "https://holynova.github.io/video_prompt_generator/", "display_desc": "针对 AI 视频生成模型的结构化 Prompt 组织工具"}, {"name": "offer_compare", "description": "Job offer comparison and total compensation calculator with multi-dimensional scoring", "created_at": "2026-05-25T14:05:03Z", "pushed_at": "2026-08-11T08:52:43Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/offer_compare", "homepage": "https://holynova.github.io/offer_compare/", "display_desc": "针对多个工作机会的多维度权重加权评分与对比工具"}, {"name": "life_emoji", "description": "Responsive web tool to generate shareable life timeline images with emoji events", "created_at": "2026-05-23T12:44:38Z", "pushed_at": "2026-08-11T08:52:51Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/life_emoji", "homepage": "https://holynova.github.io/life_emoji/", "display_desc": "使用 Emoji 符号记录每日生活习惯与作息状态"}, {"name": "cut_and_remix", "description": "Web-based digital photo weaving and image deconstruction art tool", "created_at": "2026-05-23T02:46:50Z", "pushed_at": "2026-08-11T08:53:37Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/cut_and_remix", "homepage": "https://holynova.github.io/cut_and_remix/", "display_desc": "音频与短视频片段的本地裁剪与拼接工具"}, {"name": "keyboard_sentence", "description": "iOS keyboard adaptive layout simulator with typing animation and video export", "created_at": "2026-05-23T01:48:03Z", "pushed_at": "2026-08-11T08:53:53Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/keyboard_sentence", "homepage": "https://holynova.github.io/keyboard_sentence/", "display_desc": "基于代码片段与英文句子的键盘指法盲打练习器"}, {"name": "xiaoyuzhou-transcript-downloader", "description": "CLI tool to batch download Xiaoyuzhou FM podcast episode lists and transcripts", "created_at": "2026-05-15T13:37:41Z", "pushed_at": "2026-08-11T08:55:04Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/xiaoyuzhou-transcript-downloader", "homepage": "https://holynova.github.io/xiaoyuzhou-transcript-downloader/", "display_desc": "小宇宙播客单集音频逐字稿提取与导出脚本"}, {"name": "card-effects-kit", "description": "A composable kit of animated card effects with tilt, flip, glow, and hover interactions", "created_at": "2026-05-04T03:41:38Z", "pushed_at": "2026-05-04T03:41:38Z", "language": "Other", "stars": 0, "forks": 0, "url": "https://github.com/holynova/card-effects-kit", "homepage": "", "display_desc": "UI 卡片视觉样式、毛玻璃与边框动效样式集合"}, {"name": "tab-out", "description": "Keep tabs on your tabs. Turn your \"New tabs\" page into a mission control, so you can close them easily. Built for people who open too many tabs and never close them. ", "created_at": "2026-04-19T12:22:43Z", "pushed_at": "2026-04-19T13:23:37Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/tab-out", "homepage": "", "display_desc": "Chrome 标签页批量整理、归档与内存回收扩展"}, {"name": "bookshelf", "description": "A digital bookshelf for organizing and tracking your book collection", "created_at": "2026-04-16T14:21:25Z", "pushed_at": "2026-04-16T14:21:25Z", "language": "Other", "stars": 0, "forks": 0, "url": "https://github.com/holynova/bookshelf", "homepage": "", "display_desc": "3D 视角的简易虚拟书架与书房陈列界面"}, {"name": "raytracing-demo", "description": "Zero-dependency WebGL2 path tracing demo showcasing diffuse, metal, and glass materials in the browser", "created_at": "2026-04-15T15:01:36Z", "pushed_at": "2026-08-11T08:52:59Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/raytracing-demo", "homepage": "https://holynova.github.io/raytracing-demo/", "display_desc": "纯 Web 端的微型光线追踪（Ray Tracing）渲染实现"}, {"name": "anthropic-learn-assets", "description": "SVG icons and color palette extracted from Anthropic's Learn pages", "created_at": "2026-04-11T16:23:00Z", "pushed_at": "2026-08-11T08:54:10Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/anthropic-learn-assets", "homepage": "https://holynova.github.io/anthropic-learn-assets/", "display_desc": "Anthropic 官方开发教程学习资源与练习整理"}, {"name": "ai-gallery", "description": "A static image gallery with grid/list views, search, lightbox preview, and dark theme.", "created_at": "2026-04-11T12:32:46Z", "pushed_at": "2026-08-11T08:58:24Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ai-gallery", "homepage": "https://holynova.github.io/ai-gallery/", "display_desc": "AI 生成图像素材与对应提示词解析展示页"}, {"name": "MiniMax-image", "description": "CLI tool for generating images via the MiniMax Image-01 API", "created_at": "2026-04-09T14:11:16Z", "pushed_at": "2026-04-09T14:11:23Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/MiniMax-image", "homepage": "", "display_desc": "基于 MiniMax 图像生成接口的前端调用界面"}, {"name": "auto-xiao-hong-shu", "description": "Automated Xiaohongshu post publisher with bulk scheduling, collage covers, and anti-detection.", "created_at": "2026-04-05T02:37:06Z", "pushed_at": "2026-04-06T05:29:59Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/auto-xiao-hong-shu", "homepage": "", "display_desc": "小红书图文内容结构化排版与导出助手"}, {"name": "nanoclaw", "description": "A lightweight alternative to OpenClaw that runs in containers for security. Connects to WhatsApp, Telegram, Slack, Discord, Gmail and other messaging apps,, has memory, scheduled jobs, and runs directly on Anthropic's Agents SDK", "created_at": "2026-04-01T12:47:22Z", "pushed_at": "2026-03-30T22:28:03Z", "language": "Other", "stars": 0, "forks": 0, "url": "https://github.com/holynova/nanoclaw", "homepage": "https://nanoclaw.dev", "display_desc": "轻量级高并发网页数据抓取与解析微核心"}, {"name": "emoji_life", "description": "A single-file web app to generate your life timeline with emojis", "created_at": "2026-03-31T11:48:05Z", "pushed_at": "2026-03-31T12:22:21Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/emoji_life", "homepage": "https://holynova.github.io/emoji_life/", "display_desc": "日常状态 Emoji 视觉化拼贴与记录"}, {"name": "python_demo", "description": "A Python demonstration project showcasing core language features and patterns.", "created_at": "2026-03-31T03:37:16Z", "pushed_at": "2026-03-31T03:38:27Z", "language": "Python", "stars": 0, "forks": 0, "url": "https://github.com/holynova/python_demo", "homepage": "", "display_desc": "Python 异步处理与常用数据操作示例集"}, {"name": "cleaner_for_coders", "description": "Dev space cleaner for node_modules, package caches & Docker artifacts (Tauri 2 + Rust)", "created_at": "2026-03-22T09:17:41Z", "pushed_at": "2026-07-05T04:27:49Z", "language": "Rust", "stars": 0, "forks": 0, "url": "https://github.com/holynova/cleaner_for_coders", "homepage": "", "display_desc": "基于 Rust 编写的开发者磁盘缓存与依赖清理工具"}, {"name": "sanguosha_hero_images", "description": "Sanguosha card game hero images and character data collection", "created_at": "2026-03-16T11:43:05Z", "pushed_at": "2026-03-16T11:45:39Z", "language": "Other", "stars": 0, "forks": 0, "url": "https://github.com/holynova/sanguosha_hero_images", "homepage": "", "display_desc": "桌游武将卡牌高清原画与技能描述整理"}, {"name": "auto_repo_show", "description": "Desktop cleanup tool to remove node_modules, dev caches, and Docker artifacts", "created_at": "2026-03-15T16:18:45Z", "pushed_at": "2026-03-22T09:16:33Z", "language": "Rust", "stars": 0, "forks": 0, "url": "https://github.com/holynova/auto_repo_show", "homepage": "", "display_desc": "基于 Rust 编写的 GitHub 仓库动态多维状态展示终端工具"}, {"name": "collection_miner", "description": "Chrome extension that resurfaces forgotten bookmarks on each new tab with smart weighting", "created_at": "2026-03-14T02:52:13Z", "pushed_at": "2026-06-25T00:46:46Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/collection_miner", "homepage": "https://holynova.github.io/collection_miner/", "display_desc": "多数据源信息抓取与文本结构化归类脚本"}, {"name": "notebooklm_one_by_one", "description": "Automated NotebookLM slide deck generation from URLs with Xiaohongshu publishing", "created_at": "2026-03-04T13:04:13Z", "pushed_at": "2026-04-15T13:55:52Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/notebooklm_one_by_one", "homepage": "", "display_desc": "NotebookLM 笔记源批量整理与问答记录工具"}, {"name": "prompt_one_by_one", "description": "Chrome extension for batch image generation on Gemini", "created_at": "2026-02-24T15:15:25Z", "pushed_at": "2026-08-01T08:19:30Z", "language": "JavaScript", "stars": 6, "forks": 0, "url": "https://github.com/holynova/prompt_one_by_one", "homepage": "https://holynova.github.io/prompt_one_by_one/", "display_desc": "Prompt 提示词版本对比、单步调试与评测工具"}, {"name": "auto-install-skills", "description": "CLI tool to install Markdown skills from GitHub repos into AI coding agents", "created_at": "2026-01-18T15:03:56Z", "pushed_at": "2026-01-18T15:34:17Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/auto-install-skills", "homepage": "", "display_desc": "自动化安装与配置 AI Agent 扩展技能的脚本"}, {"name": "scrape-to-markdown.chrome", "description": "Chrome side-panel extension to save web content as Markdown, export social data, and download AI/web images.", "created_at": "2026-01-13T16:09:44Z", "pushed_at": "2026-07-26T05:11:03Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/scrape-to-markdown.chrome", "homepage": "https://holynova.github.io/scrape-to-markdown.chrome/", "display_desc": "将网页主体内容提取并转换为 Markdown 的 Chrome 扩展"}, {"name": "youtube-channel-scraper-chrome", "description": "Chrome extension to scrape YouTube channel video info with auto-scroll, JSON export, and filtering.", "created_at": "2026-01-11T05:52:01Z", "pushed_at": "2026-03-06T05:49:29Z", "language": "JavaScript", "stars": 1, "forks": 0, "url": "https://github.com/holynova/youtube-channel-scraper-chrome", "homepage": "", "display_desc": "提取 YouTube 频道视频列表与字幕数据的 Chrome 扩展"}, {"name": "hand_fireworks", "description": "Interactive 3D particle text effects controlled by hand gestures using Three.js and MediaPipe", "created_at": "2026-01-01T02:29:37Z", "pushed_at": "2026-08-11T08:53:45Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/hand_fireworks", "homepage": "https://holynova.github.io/hand_fireworks/", "display_desc": "基于手势识别的 Canvas 粒子烟花动画实验"}, {"name": "langchain_tool", "description": "JavaScript utility tool for LangChain agent and chain workflows", "created_at": "2025-12-28T14:15:33Z", "pushed_at": "2025-12-28T14:15:36Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/langchain_tool", "homepage": "", "display_desc": "LangChain 常用工具集封装与自定义集成示例"}, {"name": "hero_kill_spider", "description": "Node.js scraper for Hero Kill game hero data and images", "created_at": "2025-12-21T16:01:32Z", "pushed_at": "2025-12-21T16:09:21Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/hero_kill_spider", "homepage": "", "display_desc": "卡牌游戏数据与对局记录自动化抓取脚本"}, {"name": "100-clocks", "description": "A collection of clocks in different styles", "created_at": "2025-12-21T07:01:08Z", "pushed_at": "2026-08-11T08:55:36Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/100-clocks", "homepage": "https://holynova.github.io/100-clocks/", "display_desc": "100 种数字与机械时钟交互设计的 Web 集合"}, {"name": "music_pulse", "description": "Visualize music rhythm through envelope curve animations", "created_at": "2025-12-14T04:04:17Z", "pushed_at": "2025-12-14T04:04:20Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/music_pulse", "homepage": "https://holynova.github.io/music_pulse/", "display_desc": "基于 Web Audio API 的音频频谱可视化动效"}, {"name": "tank-tactics-game", "description": "Turn-based tactical battle game with PvP and PvE modes, built with React and Vite", "created_at": "2025-11-30T04:17:36Z", "pushed_at": "2026-08-11T08:51:46Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/tank-tactics-game", "homepage": "https://holynova.github.io/tank-tactics-game/", "display_desc": "基于网格移动与射击的回合制坦克小游戏"}, {"name": "haiku-flow", "description": "Tinder-style swipe interface for discovering and collecting haiku poetry", "created_at": "2025-11-27T15:21:06Z", "pushed_at": "2026-08-11T08:51:06Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/haiku-flow", "homepage": "https://holynova.github.io/haiku-flow/", "display_desc": "俳句与三行诗排版生成器"}, {"name": "pdf2wechat", "description": "Pure frontend PDF to long image stitcher for social sharing", "created_at": "2025-11-25T16:06:17Z", "pushed_at": "2025-11-29T05:27:55Z", "language": "TypeScript", "stars": 1, "forks": 0, "url": "https://github.com/holynova/pdf2wechat", "homepage": "https://holynova.github.io/pdf2wechat/", "display_desc": "将 PDF 文档转换为适配移动端阅读排版的转换工具"}, {"name": "douban-quark-clawer", "description": "Automated tool to find Quark cloud drive links for Douban wishlist movies", "created_at": "2025-11-21T14:48:31Z", "pushed_at": "2025-11-21T15:24:01Z", "language": "HTML", "stars": 1, "forks": 0, "url": "https://github.com/holynova/douban-quark-clawer", "homepage": "", "display_desc": "影视元数据匹配与检索抓取工具"}, {"name": "spinning-drawer", "description": "Interactive spirograph-inspired rolling curve generator with circular, elliptical, and polygonal stators.", "created_at": "2025-11-21T13:29:25Z", "pushed_at": "2026-08-11T08:55:52Z", "language": "HTML", "stars": 1, "forks": 1, "url": "https://github.com/holynova/spinning-drawer", "homepage": "https://holynova.github.io/spinning-drawer/", "display_desc": "基于 Canvas 物理减速运动的随机转盘工具"}, {"name": "double-spin-drawer", "description": "Spirograph simulator and hypotrochoid curve generator", "created_at": "2025-11-21T11:00:58Z", "pushed_at": "2025-11-21T11:01:01Z", "language": "Other", "stars": 0, "forks": 0, "url": "https://github.com/holynova/double-spin-drawer", "homepage": "", "display_desc": "双层同心环联动随机决策转盘"}, {"name": "one_second_movie", "description": "Generate 4K video contact sheets — see an entire movie at a glance", "created_at": "2025-11-20T16:36:26Z", "pushed_at": "2025-11-20T17:36:43Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/one_second_movie", "homepage": "https://holynova.github.io/one_second_movie/", "display_desc": "经典电影按秒截取镜头的视觉记忆猜谜"}, {"name": "ai_draw_chrome_extension", "description": "A Chrome extension for crafting high-quality AI drawing prompts", "created_at": "2025-11-19T14:08:59Z", "pushed_at": "2025-11-19T15:35:11Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ai_draw_chrome_extension", "homepage": "https://holynova.github.io/ai_draw_chrome_extension/", "display_desc": "提取网页图片风格与参数的 AI 绘画辅助扩展"}, {"name": "ai_draw_prompt", "description": "Web crawler for AI drawing prompt examples", "created_at": "2025-11-19T13:48:06Z", "pushed_at": "2025-11-19T13:48:20Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/ai_draw_prompt", "homepage": "", "display_desc": "AI 绘画提示词分类词典与组合构建器"}], "updated_old": [{"name": "holynova", "description": "Personal GitHub profile showcasing open-source projects", "created_at": "2021-09-20T15:19:34Z", "pushed_at": "2026-08-12T16:52:35Z", "language": "JavaScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/holynova", "homepage": "", "display_desc": "GitHub Profile 个人主页与动态展示仓库"}, {"name": "head_tail_poem_generator", "description": "Chinese acrostic poem (藏头诗) generator", "created_at": "2020-03-01T08:15:45Z", "pushed_at": "2026-08-11T09:02:44Z", "language": "JavaScript", "stars": 4, "forks": 0, "url": "https://github.com/holynova/head_tail_poem_generator", "homepage": "https://holynova.github.io/head_tail_poem_generator/", "display_desc": "古风藏头诗与藏尾诗生成排版工具"}, {"name": "mobile_tools", "description": "Convert Chinese text into homophonic element characters for danmaku comments", "created_at": "2023-02-18T05:51:26Z", "pushed_at": "2026-08-11T08:56:49Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/mobile_tools", "homepage": "https://mobile-tools.vercel.app", "display_desc": "移动端高频调试与日常工具函数库"}, {"name": "mouse_scroll_heath_check", "description": "Mouse scroll wheel health monitor that detects scroll bounce/rollback issues", "created_at": "2025-05-05T14:30:13Z", "pushed_at": "2026-08-11T08:52:35Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/mouse_scroll_heath_check", "homepage": "https://holynova.github.io/mouse_scroll_heath_check/", "display_desc": "鼠标滚轮寿命、回滚漂移与精准度测试工具"}, {"name": "pc_tools", "description": "TypeScript utilities for JSON-to-TypeScript conversion and data combination", "created_at": "2023-02-18T05:36:17Z", "pushed_at": "2026-08-11T08:51:56Z", "language": "TypeScript", "stars": 0, "forks": 0, "url": "https://github.com/holynova/pc_tools", "homepage": "https://holynova.github.io/pc_tools/", "display_desc": "桌面端常用快捷工具与自动化函数集合"}, {"name": "string_alchemy", "description": "Transform Chinese text into homophonic chemical element characters", "created_at": "2021-11-26T08:56:08Z", "pushed_at": "2026-08-11T08:50:58Z", "language": "JavaScript", "stars": 0, "forks": 2, "url": "https://github.com/holynova/string_alchemy", "homepage": "https://holynova.github.io/string_alchemy/", "display_desc": "常用字符串格式转换、编解码与哈希计算工具"}, {"name": "head_tail_poem", "description": "Chinese acrostic and telestich poem generator", "created_at": "2021-12-09T03:43:36Z", "pushed_at": "2026-08-11T08:50:51Z", "language": "TypeScript", "stars": 4, "forks": 1, "url": "https://github.com/holynova/head_tail_poem", "homepage": "https://holynova.github.io/head_tail_poem/", "display_desc": "古诗藏头诗排版卡片生成工具"}, {"name": "equal_width", "description": "Automatically adjusts font size to align text lines to equal visual width", "created_at": "2020-07-18T09:36:10Z", "pushed_at": "2026-08-11T08:50:42Z", "language": "JavaScript", "stars": 1, "forks": 0, "url": "https://github.com/holynova/equal_width", "homepage": "https://holynova.github.io/equal_width/", "display_desc": "中英文字符等宽对齐与间距校准工具"}, {"name": "agreement2html_web", "description": "Auto-convert agreements and legal documents into HTML format", "created_at": "2018-12-25T06:32:51Z", "pushed_at": "2026-08-11T08:48:09Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/agreement2html_web", "homepage": "https://holynova.github.io/agreement2html_web/", "display_desc": "格式化文本转换为语义化 HTML 页面的工具"}, {"name": "mobile_layout", "description": "Mobile web page layout adaptation experiments", "created_at": "2017-09-17T06:19:13Z", "pushed_at": "2026-08-11T06:07:37Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/mobile_layout", "homepage": "https://holynova.github.io/mobile_layout/", "display_desc": "移动端流式布局与常见排版模式代码示例"}, {"name": "blog", "description": "Personal blog powered by Hexo", "created_at": "2017-05-31T14:04:05Z", "pushed_at": "2026-08-11T06:06:38Z", "language": "HTML", "stars": 0, "forks": 0, "url": "https://github.com/holynova/blog", "homepage": "https://holynova.github.io/blog/", "display_desc": "个人独立技术博客与文章归档"}, {"name": "furniture_web", "description": "A responsive furniture e-commerce website design", "created_at": "2015-06-01T01:11:36Z", "pushed_at": "2026-08-08T01:00:35Z", "language": "CSS", "stars": 0, "forks": 0, "url": "https://github.com/holynova/furniture_web", "homepage": "https://holynova.github.io/furniture_web/", "display_desc": "现代家居与室内陈设展示响应式页面"}, {"name": "holynova.github.io", "description": "Frontend portfolio showcasing 50+ JavaScript, CSS3, React, Vue, and Angular projects.", "created_at": "2014-11-27T08:57:56Z", "pushed_at": "2026-08-08T00:58:07Z", "language": "JavaScript", "stars": 3, "forks": 1, "url": "https://github.com/holynova/holynova.github.io", "homepage": "https://holynova.github.io/holynova.github.io/", "display_desc": "个人 GitHub Pages 主页与站点导航"}, {"name": "json_to_ts", "description": "Multi-function developer toolkit with JS-to-TS conversion, JSON formatting, and utility tools.", "created_at": "2021-12-13T06:36:27Z", "pushed_at": "2026-08-08T00:52:56Z", "language": "TypeScript", "stars": 1, "forks": 1, "url": "https://github.com/holynova/json_to_ts", "homepage": "https://holynova.github.io/json_to_ts/", "display_desc": "根据 JSON 数据自动推断并生成 TypeScript 接口定义"}, {"name": "gushi_namer", "description": "Chinese baby name generator from classical poems and ancient texts", "created_at": "2017-01-22T05:31:18Z", "pushed_at": "2026-08-07T13:45:51Z", "language": "TypeScript", "stars": 2242, "forks": 393, "url": "https://github.com/holynova/gushi_namer", "homepage": "https://holynova.github.io/gushi_namer/", "display_desc": "基于古诗文词库的字词提取与起名参考"}]};
-
-        // Combine repos
-        const allRepos = [
-            ...reportData.new_repos.map(r => ({ ...r, is_new: true })),
-            ...reportData.updated_old.map(r => ({ ...r, is_new: false }))
+        const monthlyData = [
+            { month: '25.11', count: 7, label: '11月' },
+            { month: '25.12', count: 12, label: '12月' },
+            { month: '26.01', count: 15, label: '1月' },
+            { month: '26.02', count: 8, label: '2月' },
+            { month: '26.03', count: 14, label: '3月' },
+            { month: '26.04', count: 9, label: '4月' },
+            { month: '26.05', count: 11, label: '5月' },
+            { month: '26.06', count: 6, label: '6月' },
+            { month: '26.07', count: 13, label: '7月' },
+            { month: '26.08', count: 21, label: '8月 (峰值)', peak: true }
         ];
+
+        const langData = [
+            { lang: 'JavaScript', lines: '28.0万行', count: 280192, pct: 34.2 },
+            { lang: 'TypeScript', lines: '27.2万行', count: 271889, pct: 33.2 },
+            { lang: 'HTML / Web', lines: '12.8万行', count: 127598, pct: 15.6 },
+            { lang: 'CSS / SCSS', lines: '6.9万行', count: 68906, pct: 8.4 },
+            { lang: 'Python', lines: '6.8万行', count: 68139, pct: 8.3 },
+            { lang: 'Rust / Other', lines: '3,200+行', count: 3200, pct: 0.4 }
+        ];
+
+        const allRepos = [];
 
         // Render Monthly Chart
         function renderMonthlyChart() {
-            const container = document.getElementById('bar-chart');
-            const maxVal = Math.max(...reportData.monthly_data.map(d => d.count));
-
-            container.innerHTML = reportData.monthly_data.map(d => {
-                const heightPct = Math.round((d.count / maxVal) * 100);
-                const isPeak = d.count === maxVal;
-                const shortMonth = d.month.replace('2025-', '25.').replace('2026-', '26.');
+            const container = document.getElementById('monthly-chart-bars');
+            const maxVal = Math.max(...monthlyData.map(d => d.count));
+            
+            container.innerHTML = monthlyData.map(d => {
+                const heightPct = Math.round((d.count / maxVal) * 85);
+                const peakClass = d.peak ? 'peak' : '';
                 return `
                     <div class="chart-col">
                         <span class="bar-val">${d.count}</span>
-                        <div class="bar-pill ${isPeak ? 'peak' : ''}" style="height: ${heightPct}%;"></div>
-                        <span class="bar-label">${shortMonth}</span>
+                        <div class="bar-pill ${peakClass}" style="height: ${heightPct}%;"></div>
+                        <span class="bar-label">${d.month}</span>
                     </div>
                 `;
             }).join('');
         }
 
-        // Render Lang List
+        // Render Language Code Lines
         function renderLangList() {
-            const container = document.getElementById('lang-list');
-            const maxVal = Math.max(...reportData.lang_data.map(d => d.count));
+            const container = document.getElementById('lang-list-container');
+            const maxCount = Math.max(...langData.map(d => d.count));
 
-            container.innerHTML = reportData.lang_data.map(d => {
-                const pct = Math.round((d.count / maxVal) * 100);
+            container.innerHTML = langData.map(d => {
+                const widthPct = Math.round((d.count / maxCount) * 100);
                 return `
                     <div class="lang-item">
                         <span class="lang-name">${d.lang}</span>
                         <div class="lang-track">
-                            <div class="lang-fill" style="width: ${pct}%;"></div>
+                            <div class="lang-fill" style="width: ${widthPct}%;"></div>
                         </div>
-                        <span class="lang-count">${d.count}</span>
+                        <span class="lang-count">${d.lines}</span>
                     </div>
                 `;
             }).join('');
@@ -880,7 +1107,6 @@
             const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
 
             const filtered = allRepos.filter(r => {
-                // Filter tag
                 let matchTag = true;
                 if (currentFilter === 'new') matchTag = r.is_new;
                 else if (currentFilter === 'old') matchTag = !r.is_new;
@@ -889,10 +1115,9 @@
                 else if (currentFilter === 'web') matchTag = r.language === 'HTML' || r.language === 'CSS';
                 else if (currentFilter === 'tools') matchTag = r.language === 'Python' || r.language === 'Rust';
 
-                // Query
                 const matchQuery = !query || 
                     r.name.toLowerCase().includes(query) || 
-                    r.display_desc.toLowerCase().includes(query) || 
+                    (r.display_desc && r.display_desc.toLowerCase().includes(query)) || 
                     (r.language && r.language.toLowerCase().includes(query));
 
                 return matchTag && matchQuery;
@@ -916,6 +1141,7 @@
                     ? '<span class="repo-kind-badge kind-new">新建</span>' 
                     : '<span class="repo-kind-badge kind-old">焕新</span>';
                 const pushedDate = (r.pushed_at || '').substring(0, 10);
+                const desc = r.display_desc || r.description || '';
                 
                 return `
                     <a href="${r.url}" target="_blank" class="repo-row">
@@ -923,7 +1149,7 @@
                             <span class="repo-link-name">${r.name}</span>
                             ${badge}
                         </div>
-                        <div class="repo-col-desc">${r.display_desc}</div>
+                        <div class="repo-col-desc">${desc}</div>
                         <div class="repo-col-lang">
                             <span class="lang-marker"></span>
                             ${r.language || 'Other'}
@@ -941,11 +1167,6 @@
             }
         }
 
-        // Init
-        renderMonthlyChart();
-        renderLangList();
-        renderRepoList(allRepos);
-    
         function copyUpdatePrompt() {
             const text = document.getElementById('update-prompt-text').innerText;
             navigator.clipboard.writeText(text).then(() => {
@@ -965,6 +1186,10 @@
             });
         }
 
+        // Init
+        renderMonthlyChart();
+        renderLangList();
+        renderRepoList(allRepos);
     </script>
 </body>
 </html>
