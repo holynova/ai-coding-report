@@ -2,6 +2,11 @@
 
 > **在线报告地址**：[https://holynova.github.io/ai-coding-report/](https://holynova.github.io/ai-coding-report/)
 
+<p align="center">
+  <img src="assets/readme/hero.svg" width="100%" alt="AI 编程与 GitHub 项目交付年度报告: 记录自 **2025 年 11 月 19 日** 全面采用 AI 辅助编程以来，在 GitHub 上的开源项目交付与研发效能统计。">
+</p>
+
+
 记录自 **2025 年 11 月 19 日** 全面采用 AI 辅助编程以来，在 GitHub 上的开源项目交付与研发效能统计。
 
 ---
