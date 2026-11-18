@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="360" viewBox="0 0 1200 360"
+     role="img" aria-labelledby="title desc">
+  <title id="title">AI 编程年度效能报告 — 88 个原创项目，42.5 万行代码</title>
+  <desc id="desc">深色仪表盘风标题：AI 编程年度效能报告，副标题 2025.11.19 全面采用 AI 辅助编程以来的交付统计；右侧是五格指标卡与 11.7x 交付加速。</desc>
+
+  <rect width="1200" height="360" rx="26" fill="#0f1115"/>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="56" y="62" font-size="19" letter-spacing="3" fill="#f5c518">2025.11.19 — 2026.08 · AI PAIR PROGRAMMING</text>
+    <text x="56" y="128" font-size="58" font-weight="700" fill="#f5f5f4">AI 编程年度效能报告</text>
+    <text x="56" y="168" font-size="23" fill="#d6d3d1">holynova · GitHub 原创项目交付统计</text>
+    <text x="56" y="204" font-size="19" fill="#a8a29e">100% 原创非 Fork · 统计截止 2026-08-18</text>
+    <g id="chips" font-size="18" fill="#f5f5f4" text-anchor="middle">
+      <g><rect x="56" y="238" width="150" height="36" rx="18" fill="#1c1f26" stroke="#3a3f4a" stroke-width="1.5"/><text x="131" y="262">88 个新项目</text></g>
+      <g><rect x="218" y="238" width="150" height="36" rx="18" fill="#1c1f26" stroke="#3a3f4a" stroke-width="1.5"/><text x="293" y="262">42.5 万行代码</text></g>
+      <g><rect x="380" y="238" width="150" height="36" rx="18" fill="#1c1f26" stroke="#3a3f4a" stroke-width="1.5"/><text x="455" y="262">352 次提交</text></g>
+      <g><rect x="542" y="238" width="150" height="36" rx="18" fill="#f5c518"/><text x="617" y="262" fill="#1c1917">11.7x 交付加速</text></g>
+    </g>
+  </g>
+
+  <g id="stats" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <g id="stat-shapes">
+      <rect x="780" y="52" width="360" height="96" rx="14" fill="#1c1f26" stroke="#3a3f4a" stroke-width="1.5"/>
+      <rect x="780" y="164" width="172" height="96" rx="14" fill="#1c1f26" stroke="#3a3f4a" stroke-width="1.5"/>
+      <rect x="968" y="164" width="172" height="96" rx="14" fill="#1c1f26" stroke="#3a3f4a" stroke-width="1.5"/>
+      <rect x="780" y="276" width="360" height="34" rx="17" fill="#1c1f26"/>
+      <rect x="780" y="276" width="198" height="34" rx="17" fill="#22c55e"/>
+    </g>
+    <g id="stat-labels">
+      <text x="804" y="86" font-size="18" fill="#a8a29e">新建原创项目 · 0 到 1 全新交付</text>
+      <text x="804" y="128" font-size="34" font-weight="700" fill="#f5f5f4">88 <tspan font-size="19" font-weight="400" fill="#a8a29e">个 · 103 个原创项目累计</tspan></text>
+      <text x="804" y="198" font-size="18" fill="#a8a29e">纯代码量</text>
+      <text x="804" y="234" font-size="28" font-weight="700" fill="#f5f5f4">42.5 万行</text>
+      <text x="992" y="198" font-size="18" fill="#a8a29e">平均交付周期</text>
+      <text x="992" y="234" font-size="28" font-weight="700" fill="#f5c518">3.1 天 / 项目</text>
+      <text x="804" y="299" font-size="18" fill="#f5f5f4">JavaScript 23.4 万行</text>
+      <text x="994" y="299" font-size="18" fill="#a8a29e">占 55%</text>
+    </g>
+  </g>
+</svg>
